@@ -21,8 +21,8 @@
 
 # Tasks
 
-- [] A user should see some content on the about us page.
-- [] A user should be able to navigate to a contact us page.
+- [x] CONTENT EXISTS; PAGE NAV NEEDED? A user should see some content on the about us page.
+- [x] LINK AND ROUTE IN PLACE WITH FILLER CONTENT ATM. A user should be able to navigate to a contact us page.
 - [] The login/register button should be disabled if a username or password is not provided.
 - [] A user should see the author of the post next to the post listing.
 - [] The description for the posts should be visible on the post detail page.
