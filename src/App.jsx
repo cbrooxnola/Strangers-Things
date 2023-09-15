@@ -6,6 +6,8 @@ import Posts from './Posts';
 import Post from './Post';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
+import count from './CreatePost';
+console.log(count);
 
 import { useNavigate, useParams, Link, Routes, Route } from 'react-router-dom';
 
@@ -65,7 +67,7 @@ function App() {
         auth.username ? (
           <div>
             <h1>
-              Welcome { auth.username }
+              Welcome { auth.username }! You have {posts.filter((post) => post.author.username === auth.username).length} active posts!
               <button onClick={ logout }>Logout</button>
             </h1>
             <Link to='/posts/create'>Create A Post</Link>
