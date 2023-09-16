@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import api from './api';
 import AuthForm from './AuthForm';
 import CreatePost from './CreatePost';
@@ -6,9 +7,6 @@ import Posts from './Posts';
 import Post from './Post';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
-import count from './CreatePost';
-console.log(count);
-
 import { useNavigate, useParams, Link, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -59,6 +57,16 @@ function App() {
     navigate(`/posts/${post._id}`);
   };
 
+  const updatePost = async(post)=> {
+    const response = await axios.put('https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/posts/${post.id}', post);
+    console.log(response);
+  }
+
+  const removePost = async(post)=> {
+    await axios.delete('https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/posts/${post.id}');
+    setPosts(posts.filter(_post => _post.id !== post.id));
+  };
+
 
   return (
     <>
@@ -70,9 +78,13 @@ function App() {
               Welcome { auth.username }! You have {posts.filter((post) => post.author.username === auth.username).length} active posts!
               <button onClick={ logout }>Logout</button>
             </h1>
-            <Link to='/posts/create'>Create A Post</Link>
-            <Link to='/about_us'>About Us</Link>
-            <Link to='/contact_us'>Contact Us</Link>
+            <div className='menu'>
+              
+            <Link className='menuItem' to='/posts/create'>Create A Post</Link>
+            <Link className='menuItem' to='/about_us'>About Us</Link>
+            <Link className='menuItem' to='/contact_us'>Contact Us</Link>
+            
+            </div>
             <Routes>
               <Route path='/posts/create' element={ <CreatePost createPost={ createPost } />} />
             </Routes>

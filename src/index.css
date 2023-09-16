@@ -10,3 +10,25 @@ form > * {
 .mine {
   font-weight: bold;
 }
+.menu {
+  display: flex;
+  border: solid 1px rgb(24, 136, 247);
+  background-color: rgb(244, 235, 201);
+  justify-content: space-around;
+}
+
+.menuItem {
+  padding: 0.5rem;
+  font-style: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.updateForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.updateForm > * {
+  margin: 0.5rem;
+}
